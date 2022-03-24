@@ -1,17 +1,20 @@
 package mx.forteinnovation.permisos.model.entity;
 
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "permiso", indexes = {
         @Index(name = "tipoPermiso_idx", columnList = "tipo_permiso")
 })
-public class PermisoEntity {
+public class PermisoEntity  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_permiso", nullable = false)
-    private Integer id;
+    private Integer idPermiso;
 
     @Column(name = "nombre_empleado", nullable = false, length = 300)
     private String nombreEmpleado;
@@ -19,7 +22,7 @@ public class PermisoEntity {
     @Column(name = "apellido_empleado", nullable = false, length = 300)
     private String apellidoEmpleado;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "tipo_permiso", nullable = false)
     private TipoPermisoEntity tipoPermiso;
 
@@ -27,14 +30,6 @@ public class PermisoEntity {
     private LocalDate fechaPermiso;
 
     public PermisoEntity() {
-    }
-
-    public PermisoEntity(Integer id, String nombreEmpleado, String apellidoEmpleado, TipoPermisoEntity tipoPermiso, LocalDate fechaPermiso) {
-        this.id = id;
-        this.nombreEmpleado = nombreEmpleado;
-        this.apellidoEmpleado = apellidoEmpleado;
-        this.tipoPermiso = tipoPermiso;
-        this.fechaPermiso = fechaPermiso;
     }
 
     public PermisoEntity(String nombreEmpleado, String apellidoEmpleado, TipoPermisoEntity tipoPermiso, LocalDate fechaPermiso) {
@@ -53,6 +48,7 @@ public class PermisoEntity {
     }
 
     public TipoPermisoEntity getTipoPermiso() {
+
         return tipoPermiso;
     }
 
@@ -76,11 +72,11 @@ public class PermisoEntity {
         this.nombreEmpleado = nombreEmpleado;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getId1() {
+        return idPermiso;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId1(Integer id1) {
+        this.idPermiso = id1;
     }
 }

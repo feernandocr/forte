@@ -4,7 +4,6 @@ import mx.forteinnovation.permisos.beans.PermisoRequest;
 import mx.forteinnovation.permisos.model.entity.PermisoEntity;
 import mx.forteinnovation.permisos.model.entity.TipoPermisoEntity;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface PermisoService {
