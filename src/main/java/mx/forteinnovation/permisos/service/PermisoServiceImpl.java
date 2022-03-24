@@ -37,6 +37,39 @@ public class PermisoServiceImpl implements PermisoService{
         return crudPermiso.save(newRecord);
     }
 
+    @Override
+    public PermisoEntity updatePermiso(PermisoRequest permisoRequest) {
+        Optional<PermisoEntity> entity = crudPermiso.findById(permisoRequest.getIdPermiso());
+
+        if (entity.isPresent()){
+            PermisoEntity entityPivot = entity.get();
+            entityPivot.setNombreEmpleado(permisoRequest.getNombreEmpleado());
+            entityPivot.setApellidoEmpleado(permisoRequest.getApellidoEmpleado());
+            entityPivot.setFechaPermiso(permisoRequest.getFechaPermiso());
+            entityPivot.setTipoPermiso(getTipoPermisoById(permisoRequest.getTipoPermiso()));
+
+            return crudPermiso.save(entityPivot);
+        }
+        return null;
+    }
+
+    @Override
+    public List<PermisoEntity> getAllPermisos() {
+        return (List<PermisoEntity>) crudPermiso.findAll();
+    }
+
+    @Override
+    public Boolean deletePermiso(Integer idPermiso) {
+        Optional<PermisoEntity> entity = crudPermiso.findById(idPermiso);
+
+        if (entity.isPresent()){
+            crudPermiso.deleteById(idPermiso);
+            return true;
+        }else {
+            return false;
+        }
+    }
+
 
     public TipoPermisoEntity getTipoPermisoById(int idTipoPermiso)  {
         Optional<TipoPermisoEntity> tipoPermisoEntity = null;
