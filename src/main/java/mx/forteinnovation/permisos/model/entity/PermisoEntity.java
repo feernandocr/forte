@@ -72,11 +72,11 @@ public class PermisoEntity  {
         this.nombreEmpleado = nombreEmpleado;
     }
 
-    public Integer getId1() {
+    public Integer getIdPermiso() {
         return idPermiso;
     }
 
-    public void setId1(Integer id1) {
-        this.idPermiso = id1;
+    public void setIdPermiso(Integer idPermiso) {
+        this.idPermiso = idPermiso;
     }
 }

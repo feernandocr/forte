@@ -27,11 +27,11 @@ public class TipoPermisoEntity  {
         this.descripcion = descripcion;
     }
 
-    public Integer getId1() {
+    public Integer getIdTipoPermiso() {
         return idTipoPermiso;
     }
 
-    public void setId1(Integer id1) {
-        this.idTipoPermiso = id1;
+    public void setIdTipoPermiso(Integer idTipoPermiso) {
+        this.idTipoPermiso = idTipoPermiso;
     }
 }
