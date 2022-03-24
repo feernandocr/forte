@@ -1,12 +1,8 @@
 package mx.forteinnovation.permisos.model.entity;
 
-import org.springframework.data.jpa.domain.AbstractAuditable;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.LinkedHashSet;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "tipo_permiso")
