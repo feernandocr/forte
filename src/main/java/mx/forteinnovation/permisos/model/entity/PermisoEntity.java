@@ -22,7 +22,7 @@ public class PermisoEntity  {
     @Column(name = "apellido_empleado", nullable = false, length = 300)
     private String apellidoEmpleado;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "tipo_permiso", nullable = false)
     private TipoPermisoEntity tipoPermiso;
 

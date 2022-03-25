@@ -29,6 +29,15 @@ public class PermisoRequest {
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate fechaPermiso;
 
+
+    public PermisoRequest(Integer idPermiso, String nombreEmpleado, String apellidoEmpleado, Integer tipoPermiso, LocalDate fechaPermiso) {
+        this.idPermiso = idPermiso;
+        this.nombreEmpleado = nombreEmpleado;
+        this.apellidoEmpleado = apellidoEmpleado;
+        this.tipoPermiso = tipoPermiso;
+        this.fechaPermiso = fechaPermiso;
+    }
+
     public Integer getIdPermiso() {
         return idPermiso;
     }

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/permisos")
 public class PermisosController {
 
@@ -37,6 +38,7 @@ public class PermisosController {
     public PermisoEntity updatePermiso(@RequestBody PermisoRequest permisoRequest){
         return permisoService.updatePermiso(permisoRequest);
     }
+
 
     @GetMapping(value="/getAllPermisos")
     public List<PermisoEntity> getAllPermisos() {
